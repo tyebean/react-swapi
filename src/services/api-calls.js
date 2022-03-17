@@ -1,4 +1,4 @@
-const baseUrl = 'https://swapi.dev/api/'
+const baseUrl = 'https://swapi.dev'
 
 // export functions for each getDATA
 //will look something like this:
@@ -8,15 +8,15 @@ const baseUrl = 'https://swapi.dev/api/'
 //   .then(res => res.json())
 // }
 
-// Use named exports to expose AJAX functionality as needed, e.g., export function getAllStarships() {...}to obtain all starships.
+// Use named exports to expose AJAX functionality as needed, e.g., export function getAllStarships() {...}to obtain all starships. 
 
-export function getAllStarships() {
+export function getStarshipList() {
   return fetch(`${baseUrl}/api/starships/`)
   .then(res => res.json())
 }
 
-// todo figure out what goes in template literal
-// export function getAllStarships() {
-//   return fetch(`${baseUrl}/api/starships/${}`)
-//   .then(res => res.json())
-// }
+export function getStarshipDetails(apiUrl) {
+  return fetch(`${baseUrl}${apiUrl}`)
+  .then(res => res.json())
+}
+
