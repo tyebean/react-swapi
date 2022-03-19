@@ -1,18 +1,21 @@
-import './App.css';
-// * using routes to make each starship card clickable
-// import { Route, Routes } from 'react-router-dom'
-import StarshipList from './pages/StarshipList/StarshipList';
-import StarshipDetails from './pages/StarshipDetails/StarshipDetails';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+// import NavBar from "./components/NavBar";
+import StarshipList from "./pages/StarshipList/StarshipList";
+import StarshipDetails from "./pages/StarshipDetails/StarshipDetails";
+
+
 
 function App() {
   return (
     <div>
-      <StarshipList />
-      {/* <Routes>
-        <Route path='/starship' element={<StarshipDetails />} />
-      </Routes> */}
+      {/* <NavBar /> */}
+      <Routes>
+        <Route path='/starship' element={<StarshipList />} />
+        <Route path="/starship-details" element={<StarshipDetails />} />
+      </Routes> 
     </div>
   );
 }
 
-export default App;
+export default App; 

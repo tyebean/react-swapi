@@ -8,14 +8,17 @@ const StarshipList = (props) => {
   useEffect(() => {
     getStarshipList()
     .then(listData => setStarships(listData.results))
+    return () => {
+      setStarships([])
+    }
   }, [])
 
   return ( 
     <div>
       <h1>STARWARS STARSHIPS</h1>
       <div className='icon-container'>
-      {starships.map((starshipCard, index) => (
-        <Link to='/starship' state={{starshipCard}} key={index}>
+      {starships.map((starshipCard, index) => ( 
+        <Link to={'/starship-details'} state={{starshipCard}} key={index}>
           <div className='ship-card'> 
             {starshipCard.name}
           </div>
@@ -24,11 +27,6 @@ const StarshipList = (props) => {
       </div>
     </div>
   );
-}
+} 
 
 export default StarshipList;
-
-// 3. Obtain all the starships from the API and render in  a clickable  
-//(imported from react-router-dom) card for each starship. 
-
-// You must style the link to look like a button and contain the text of the starship’s name. For example: 
